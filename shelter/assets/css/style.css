@@ -13,6 +13,10 @@ body {
 	margin: 0px;
 	padding: 0px;
 	font-family: 'Georgia, Arial';
+  scroll-behavior: smooth;
+}
+html {
+  scroll-behavior: smooth;
 }
 .container{
 	width: 1280px;
@@ -30,16 +34,21 @@ a {
   text-decoration: none;
   color: var(--color-primary);
 }
+a:hover, button:hover {
+  filter: brightness(1.1);
+}
 .header_menu a {
   color: var(--color-dark-s);
  	cursor: pointer;
 	line-height: 24px; 
 	position: relative;
+  filter: none !important;
 }
 .header_menu a:after {
 	display: block;
 	position: absolute;
-	left: 0; 
+	left: 0;
+  top: 100%;
 	width: 0;
 	height: 3px;
   color: var(--color-primary);
@@ -48,14 +57,15 @@ a {
 	transition: width 0.3s ease-out; 
 }
 .header_menu a:hover:after,
-.header_menu a:focus:after {
+.header_menu a:focus:after,
+.header_menu a.active_nav:after {
 	width: 100%; 
 }
-.header_menu a:hover {
+.header_menu a:hover, .header_menu a.active_nav {
   color: var(--color-primary);
 
 }
-.our_pets .header_menu a:hover {
+.our_pets .header_menu a:hover, .our_pets .header_menu a.active_nav {
   color: var(--color-dark-3xl);
 
 }
@@ -75,6 +85,17 @@ header {
   top: 0px;
   width: 100%;
 }
+
+/*.active_nav {
+  color: var(--color-primary);
+  text-decoration: underline 3px;
+
+}
+#active_nav_pets {
+    color: var(--color-dark-3xl);
+    text-decoration-color: var(--color-primary);;
+    text-decoration: underline 3px;
+}*/
 #not_only {
 	background-image: url(../img/start-screen-gradient-background.jpg);
 	background-size: cover;
@@ -149,6 +170,9 @@ header {
   font-size: 17px;
   line-height: 130%;
   color: var(--color-dark-3xl);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 .about_block {
   display: flex;
@@ -249,6 +273,7 @@ header {
   width: 100%;
   height: 100%;
   align-items: center;
+  pointer-events: none;
 }
 .slider_nav button {
   background: var(--color-light-l);
@@ -261,6 +286,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: all;
 }
 .dog_button_2 {
   background-color: var(--color-primary);
@@ -273,6 +299,9 @@ header {
   font-size: 17px;
   line-height: 130%;
   color: var(--color-dark-3xl);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 #help h2 {
   font-family: 'Georgia';
@@ -464,7 +493,7 @@ footer {
   color: var(--color-dark-l);
   margin: 30px 0px;
 }
-#our_pets_catalog h2 {
+#our_pets_catalog h1 {
   font-family: 'Georgia';
   font-style: normal;
   font-weight: 400;
@@ -510,4 +539,16 @@ footer {
 }
 #button_number {
   background: var(--color-primary);
+}
+.our_content .item:hover {
+  box-shadow: 0px 0px 5px var(--color-dark-s);
+}
+.our_catalog .item:hover {
+  box-shadow: 0px 0px 5px var(--color-dark-s);
+}
+#button_left:hover {
+  filter: none !important;
+}
+#button_left_back:hover {
+  filter: none !important;
 }
